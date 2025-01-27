@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>D&D Симулятор</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/MySim/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/MySim/icon.png">
+</head>
+<body>
+    <div class="container">
+        <h1>Побережье Мечей 🏰</h1>
+
+        <div class="controls">
+            <button onclick="addNPC()">Создать NPC</button>
+        </div>
+
+        <div id="npc-list" class="npc-list"></div>
+
+        <!-- Простой статус (можно удалить, если не нужен) -->
+        <div id="status" style="margin-top: 20px; color: green; font-size: 0.9em;">
+            Режим офлайн доступен!
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Упрощенная регистрация Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/MySim/sw.js')
+                .then(() => console.log('Service Worker зарегистрирован!'))
+                .catch(err => console.log('Ошибка:', err));
+        }
+    </script>
+</body>
+</html>
